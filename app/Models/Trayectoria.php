@@ -6,24 +6,34 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Diagnostico extends Model
+class Trayectoria extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'curso_id',
         'alumno_id',
-        'texto',
-        'evidencia',
+        'curso_id',
+        'anio_lectivo',
+        'resumen',
+        'indicadores',
+        'observaciones_docente',
+        'estado',
     ];
 
-    public function curso(): BelongsTo
+    protected function casts(): array
     {
-        return $this->belongsTo(Curso::class);
+        return [
+            'indicadores' => 'array',
+        ];
     }
 
     public function alumno(): BelongsTo
     {
         return $this->belongsTo(Alumno::class);
+    }
+
+    public function curso(): BelongsTo
+    {
+        return $this->belongsTo(Curso::class);
     }
 }

@@ -61,4 +61,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Curso::class, 'user_id');
     }
+
+    public function declaracionesJuradas(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(DeclaracionJurada::class, 'user_id');
+    }
 }

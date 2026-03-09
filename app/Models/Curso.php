@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -9,6 +10,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Curso extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'user_id',
         'escuela_id',
@@ -63,5 +66,10 @@ class Curso extends Model
     public function planificacion(): HasOne
     {
         return $this->hasOne(Planificacion::class, 'curso_id');
+    }
+
+    public function trayectorias(): HasMany
+    {
+        return $this->hasMany(Trayectoria::class, 'curso_id');
     }
 }
