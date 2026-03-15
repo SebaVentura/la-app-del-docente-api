@@ -64,6 +64,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/trayectorias/{trayectoria}', [\App\Http\Controllers\TrayectoriaController::class, 'update']);
     Route::delete('/trayectorias/{trayectoria}', [\App\Http\Controllers\TrayectoriaController::class, 'destroy']);
 
+    // Declaraciones juradas
+    Route::get('/declaraciones-juradas', [\App\Http\Controllers\DeclaracionJuradaController::class, 'index']);
+    Route::get('/escuelas/{escuela}/declaraciones-juradas', [\App\Http\Controllers\DeclaracionJuradaController::class, 'indexByEscuela']);
+    Route::get('/declaraciones-juradas/{declaracionJurada}', [\App\Http\Controllers\DeclaracionJuradaController::class, 'show']);
+    Route::post('/escuelas/{escuela}/declaraciones-juradas', [\App\Http\Controllers\DeclaracionJuradaController::class, 'store']);
+    Route::put('/declaraciones-juradas/{declaracionJurada}', [\App\Http\Controllers\DeclaracionJuradaController::class, 'update']);
+    Route::delete('/declaraciones-juradas/{declaracionJurada}', [\App\Http\Controllers\DeclaracionJuradaController::class, 'destroy']);
+
     // Planificaciones
     Route::get('/cursos/{curso}/planificaciones', [\App\Http\Controllers\PlanificacionController::class, 'index']);
     Route::post('/cursos/{curso}/planificaciones', [\App\Http\Controllers\PlanificacionController::class, 'store']);
