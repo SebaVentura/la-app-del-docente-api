@@ -12,6 +12,7 @@ use App\Models\Clase;
 use App\Models\Material;
 use App\Models\Diagnostico;
 use App\Models\Planificacion;
+use App\Models\Trayectoria;
 
 use App\Policies\EscuelaPolicy;
 use App\Policies\CursoPolicy;
@@ -20,6 +21,7 @@ use App\Policies\ClasePolicy;
 use App\Policies\MaterialPolicy;
 use App\Policies\DiagnosticoPolicy;
 use App\Policies\PlanificacionPolicy;
+use App\Policies\TrayectoriaPolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -36,6 +38,7 @@ class AuthServiceProvider extends ServiceProvider
         Material::class => MaterialPolicy::class,
         Diagnostico::class => DiagnosticoPolicy::class,
         Planificacion::class => PlanificacionPolicy::class,
+        Trayectoria::class => TrayectoriaPolicy::class,
     ];
 
     /**

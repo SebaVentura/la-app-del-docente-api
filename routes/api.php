@@ -56,6 +56,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/alumnos/{alumno}/diagnosticos', [\App\Http\Controllers\DiagnosticoController::class, 'index']);
     Route::post('/alumnos/{alumno}/diagnosticos', [\App\Http\Controllers\DiagnosticoController::class, 'store']);
 
+    // Trayectorias
+    Route::get('/cursos/{curso}/trayectorias', [\App\Http\Controllers\TrayectoriaController::class, 'indexByCurso']);
+    Route::get('/alumnos/{alumno}/trayectorias', [\App\Http\Controllers\TrayectoriaController::class, 'indexByAlumno']);
+    Route::get('/trayectorias/{trayectoria}', [\App\Http\Controllers\TrayectoriaController::class, 'show']);
+    Route::post('/alumnos/{alumno}/trayectorias', [\App\Http\Controllers\TrayectoriaController::class, 'store']);
+    Route::put('/trayectorias/{trayectoria}', [\App\Http\Controllers\TrayectoriaController::class, 'update']);
+    Route::delete('/trayectorias/{trayectoria}', [\App\Http\Controllers\TrayectoriaController::class, 'destroy']);
+
     // Planificaciones
     Route::get('/cursos/{curso}/planificaciones', [\App\Http\Controllers\PlanificacionController::class, 'index']);
     Route::post('/cursos/{curso}/planificaciones', [\App\Http\Controllers\PlanificacionController::class, 'store']);
